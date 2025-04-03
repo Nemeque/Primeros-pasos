@@ -1,0 +1,239 @@
+#Escribir un programa en Java que imprima por pantalla la frase “Hola, ya se imprimir frases”.
+print("Hola, ya se imprimir frases")
+
+#Escribir un programa en Java que imprima por pantalla un número entero, por ejemplo el 273, o el 597.
+print(273)
+
+#Escribir un programa en Java que imprima por pantalla un número decimal, por ejemplo el 5’3, ó el 7’5.
+print(15/2)
+
+#Escribir un programa en Java que imprima por pantalla la suma de 1234 y 532.
+print(1234+532)
+
+#Escribir un programa en Java que imprima por pantalla la resta de 1234 y 532.
+print(1234-532)
+
+#Escribir un programa en Java que imprima por pantalla la multiplicación de 1234 y 532.
+print(1234*532)
+
+#Escribir un programa en Java que imprima por pantalla la división de 1234 entre 532.
+print(1234/532)
+
+#Escribir un programa en Java que imprima por pantalla los números del 1 al 3.
+print(1, 2, 3)
+
+#Escribir un programa en Java que imprima por pantalla los números del 1 al 9.
+s = []
+for i in range(9):
+  print(s + [i+1])
+
+#Escribir un programa en Java que imprima por pantalla los números del 1 al 10.000. Conveniente usar bucles.
+s = []
+while len(s) < 10000:
+  s = s + [len(s)+1]
+print(s)
+
+#Escribir un programa en Java que imprima por pantalla los números del 5 al 10.
+print(5, 6, 7, 8, 9, 10)
+
+#Escribir un programa en Java que imprima por pantalla los números del 5 al 15.
+s = []
+for i in range(11):
+  s = s + [i+5]
+print(s)
+
+#Escribir un programa en Java que imprima por pantalla los números del 5 al 15.000. Conveniente usar bucles.
+s = []
+i = 0
+while i <= 14995:
+  s = s + [i+5]
+  i = i + 1
+print(s)
+
+#Escribir un programa en Java que imprima 200 veces la palabra “hola”. Nota: en el código fuente que usted escriba debe figurar solamente una vez la palabra “hola”.
+print("hola\n"*200)
+
+#Escribir un programa en Java que imprima por pantalla los cuadrados de los 30 primeros números naturales.
+for i in range(30):
+  print((i+1)**2)
+
+#Escribir un programa en Java que multiplique los 20 primeros número naturales (1*2*3*4*5...).
+p = 1
+for i in range(20):
+  p = p * (i+1)
+print(p)
+
+#Escribir un programa en Java que sume los cuadrados de los cien primeros números naturales, mostrando el resultado en pantalla.
+s = 0
+for i in range(100):
+  s += (i+1)**2
+print(s)
+
+#Escribir un programa en Java que lea un número entero desde teclado y realiza la suma de los 100 número siguientes, mostrando el resultado en pantalla.
+def suma(a):
+  s = 0
+  for i in range(100):
+    s += i+a
+  return s
+
+a = int(input())
+print(suma(a))
+
+#Escribir un programa en Java que convierta de euros a dólares. Recibirá un número decimal correspondiente a la cantidad en euros y contestará con la cantidad correspondiente en dolares.
+def convertir(a):
+  return a*1.09
+
+a = float(input())
+print(convertir(a))
+
+#Escribir un programa en Java que calcule el área de un rectángulo del cual se le proporcionará por el teclado su altura y anchura (números decimales).
+def area(a,b):
+  return a*b
+
+a = float(input("altura: "))
+b = float(input("anchura: "))
+c = area(a,b)
+print("area: ",c)
+
+#Escribir un programa en Java que lea dos números del teclado y diga cual es el mayor y cual el menor.
+def mayor(a,b):
+  if a>b:
+    return (a," es mayor que ",b)
+  return (b," es mayor que ",a)
+
+a = int(input("numero 1: "))
+b = int(input("numero 2: "))
+print(mayor(a,b))
+
+#Escribir un programa en Java que lea un número entero por el teclado e imprima todos los número impares menores que él.
+def imparesMenores(a):
+  s = []
+  for i in range(a):
+    if i%2!=0:
+      s = s + [i]
+    else:
+     s = s
+  return s
+
+a = int(input())
+b = imparesMenores(a)
+print(b)
+
+#Implemente el algoritmo de Euclides para encontrar el gcd de dos número leídos desde teclado.
+def gcd_1(a,b):
+  if a>b:
+    return gcd(a,b)
+  return gcd(b,a)
+
+def gcd(a,b):
+  r = a%b
+  if r==0:
+    return b
+  return gcd(b,r)
+
+a = int(input())
+b = int(input())
+print(gcd_1(a,b))
+
+#Escriba un programa que lea los coeficientes a, b y c de una ecuación de segundo, y estudie si tiene o no solución. En caso positivo, las soluciones se calcularán e imprimirán en pantalla.
+def cuadratica(a,b,c):
+  r = b**2-4*a*c
+  if r>0:
+    return ["las unicas soluciones son:"] + [(-b+((b**2-4*a*c)*(1/2)))/2*a] + [(-b-((b**2-4*a*c)*(1/2)))/2*a]
+  if r==0:
+    return "la unica solucion real es 0"
+  return "no hay soluciones reales"
+
+a = int(input())
+b = int(input())
+c = int(input())
+print(cuadratica(a,b,c))
+
+#Pruebe la recursividad en Java. Escriba programas que calculen recursivamente las funciones f actorial(n) y Ackermann(x, y).
+#25.1
+def factorial(n):
+  p = 1
+  if n==0:
+    return p
+  return p*n*factorial(n-1)
+
+n = int(input())
+print(factorial(n))
+
+#Pruebe la recursividad en Java. Escriba programas que calculen recursivamente las funciones f actorial(n) y Ackermann(x, y).
+#25.2
+def Ackermann(x,y):
+  if x==0:
+    return y+1
+  if y==0:
+    return Ackermann(x-1,1)
+  return Ackermann(x-1,Ackermann(x,y-1))
+
+x = int(input())
+y = int(input())
+print(Ackermann(x,y))
+
+#Escriba un programa que lea tres números enteros positivos, y que calcule e imprima en pantalla el menor y el mayor de todos ellos.
+def mayor(a,b,c):
+  if a>b and a>c:
+    return a
+  if b>a and b>c:
+    return b
+  return c
+def menor(a,b,c):
+  if a<b and a<c:
+    return a
+  if b<a and b<c:
+    return b
+  return c
+
+a = int(input())
+b = int(input())
+c = int(input())
+print("mayor: ",mayor(a,b,c))
+print("menor: ",menor(a,b,c))
+
+#Escriba un programa que lea temperaturas expresadas en grados Fahrenheit y las convierta a grados Celsius mostrándola. El programa finalizará cuando lea un valor de temperatura igual a 999. La conversión de grados Farenheit (F) a Celsius (C) está dada por C = 5/9(F − 32).
+def temperatura(a):
+  if a == 999:
+    return None
+  return 5/9*(a-32)
+
+
+a = float(input("grados en Farenheit"))
+if temperatura(a) is not None:
+    print(temperatura(a), "grados Celsius")
+
+#Implemente una sentencia switch que escriba un mensaje en cada caso. Inclúyala en bucle de prueba for. Utilice también un break tras cada caso y pruébelo. Elimine el break y vea qué ocurre.
+for i in range(1, 4):
+    print(f"\nEvaluando i = {i}:")
+    if i == 1:
+        print("Caso 1: Este es el primer mensaje.")
+    if i == 1 or i == 2:
+        print("Caso 2: Este es el segundo mensaje.")
+    if i == 1 or i == 2 or i == 3:
+        print("Caso 3: Este es el tercer mensaje.")
+    if True: 
+        print("Caso por defecto: No hay mensaje definido.")
+
+#Cuando se lee una entrada estándar, por lo general se alcanza el fin de archivo cuando el usuario teclea CRTL-D, CRTL-Z, o algún otro carácter dependiente del sistema. Descubra cuál es el adecuado en su sistema. Escriba un programa que lea datos controlando el fin de la secuencia con la combinación adecuada.
+print("Introduce texto (presiona Ctrl+D para terminar):")
+
+try:
+    while True:
+        a = input()  # Lee una línea de entrada
+        print("Leído:", a)
+except EOFError:  # Se ejecuta cuando se detecta EOF (Ctrl+D / Ctrl+Z)
+    print("\nFin de la entrada (EOF detectado).")
+
+#Escriba un programa que use dos bucles for anidados y el operador de módulo (%) para detectar e imprimir números primos.
+a = int(input("inicio: "))
+b = int(input("fin: "))
+f"Números primos entre {a} y {b}:"
+for i in range(a, b + 1):
+    Primo = True  
+    for j in range(2, i):
+        if i % j == 0:
+            Primo = False
+    if Primo:
+        print(i, end=" ")
